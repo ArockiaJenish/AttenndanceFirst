@@ -42,16 +42,17 @@ public class StudentService implements StuServiceInterface {
 	private static final String FOLDER_PATH = "C:/Jenish/ProjectsPractice/Attendance/src/files/profile/";
 
 	// -----------------Register Student -----------------
-	public ResponseEntity<String> registerStudent(Student student, MultipartFile file) {
+	public ResponseEntity<String> registerStudent(Student student) {
 		
 		try {
 			Student exStu = stuRepo.findByEmail(student.getEmail());
 			if (exStu == null) {
 				if (student.getName() != null && student.getEmail() != null && student.getPassword() != null) {
 					Student saved = stuRepo.save(student);
-					String filePath = FOLDER_PATH+saved.getId()+".png";
-					saved.setImagePath(filePath);
-					file.transferTo(new File(filePath).toPath());
+					/*
+					 * String filePath = FOLDER_PATH+saved.getId()+".png";
+					 * saved.setImagePath(filePath); file.transferTo(new File(filePath).toPath());
+					 */
 					stuRepo.save(saved);
 					return new ResponseEntity<>("Registered Successfully", HttpStatus.OK);
 				} else {

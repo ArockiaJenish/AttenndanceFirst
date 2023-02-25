@@ -34,8 +34,8 @@ public class StudentController {
 	
 	//----------For Register Student--------
 	@RequestMapping(method = RequestMethod.POST, value = "/registerStudent")
-	public ResponseEntity<String> registerStudent(@RequestBody Student student, @RequestParam("profile") MultipartFile file) throws IllegalStateException, IOException {
-		return stuServ.registerStudent(student, file);
+	public ResponseEntity<String> registerStudent(@RequestBody Student student) throws IllegalStateException, IOException {
+		return stuServ.registerStudent(student);
 	}
 
 	//-----------For login Student---------

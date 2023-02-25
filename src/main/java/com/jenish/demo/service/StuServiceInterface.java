@@ -12,7 +12,7 @@ import com.jenish.demo.model.Student;
 
 public interface StuServiceInterface {
 	
-	public ResponseEntity<String> registerStudent(Student student, MultipartFile file);
+	public ResponseEntity<String> registerStudent(Student student);
 	public StudentDTO login(Student stu);
 	public String checkIn(int id);
 	public String checkOut(int id);
